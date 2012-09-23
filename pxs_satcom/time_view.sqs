@@ -1,0 +1,11 @@
+private ["_casHMS","_text"]
+
+#CYCLE
+_casHMS = daytime call compile loadFile "PXS_SATCOM\time_function.sqf"
+_text = format ["%1", _casHMS]
+
+ctrlSetText [1001, _text]
+~0.1
+goto "CYCLE"
+
+exit

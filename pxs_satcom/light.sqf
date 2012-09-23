@@ -1,0 +1,30 @@
+private ["_daytime"];
+
+_daytime = round daytime;
+	switch (_daytime) do {
+	case 0:{PXS_APERTURE = 0.07;setaperture PXS_APERTURE;};
+	case 1:{PXS_APERTURE = 0.08;setaperture PXS_APERTURE;};
+	case 2:{PXS_APERTURE = 0.08;setaperture PXS_APERTURE;};
+	case 3:{PXS_APERTURE = 0.08;setaperture PXS_APERTURE;};
+	case 4:{PXS_APERTURE = 0.08;setaperture PXS_APERTURE;};
+	case 5:{PXS_APERTURE = 0.1;setaperture PXS_APERTURE;};
+	case 6:{PXS_APERTURE = 0.7;setaperture PXS_APERTURE;};
+	case 7:{PXS_APERTURE = 4.62;setaperture PXS_APERTURE;};
+	case 8:{PXS_APERTURE = 15.2;setaperture PXS_APERTURE;};
+	case 9:{PXS_APERTURE = 23.82;setaperture PXS_APERTURE;};
+	case 10:{PXS_APERTURE = 32.32;setaperture PXS_APERTURE;};
+	case 11:{PXS_APERTURE = 35;setaperture PXS_APERTURE;};
+	case 12:{PXS_APERTURE = 35;setaperture PXS_APERTURE;};
+	case 13:{PXS_APERTURE = 35;setaperture PXS_APERTURE;};
+	case 14:{PXS_APERTURE = 32.52;setaperture PXS_APERTURE;};
+	case 15:{PXS_APERTURE = 25.0;setaperture PXS_APERTURE;};
+	case 16:{PXS_APERTURE = 14.0;setaperture PXS_APERTURE;};
+	case 17:{PXS_APERTURE = 4.52;setaperture PXS_APERTURE;};
+	case 18:{PXS_APERTURE = 0.68;setaperture PXS_APERTURE;};
+	case 19:{PXS_APERTURE = 0.01;setaperture PXS_APERTURE;};
+	case 20:{PXS_APERTURE = 0.04;setaperture PXS_APERTURE;};
+	case 21:{PXS_APERTURE = 0.04;setaperture PXS_APERTURE;};
+	case 22:{PXS_APERTURE = 0.06;setaperture PXS_APERTURE;};
+	case 23:{PXS_APERTURE = 0.07;setaperture PXS_APERTURE;};
+	default {PXS_APERTURE = 35.0;setaperture PXS_APERTURE;};
+	};

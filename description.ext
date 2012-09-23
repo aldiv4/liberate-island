@@ -1,0 +1,206 @@
+showGps = 1;
+
+OnLoadMission = "Rescue";
+OnLoadIntro = "Rescue";
+
+class Header
+{
+	gameType = COOP;
+	minPlayers = 1;
+	maxPlayers = 20;
+};
+
+// description.ext settings for revive
+///////////////////////////////////////////////////////////////////////////////////////////
+disabledAI = 1;
+Respawn = "BASE";
+RespawnDelay = 6;
+RespawnDialog = 0;
+
+#include "R3F_ARTY_AND_LOG\desc_include.h"
+#include "R3F_revive\dlg_attente_reanimation.h"
+#include "dialog\Dlg\acdefine.hpp"
+#include "dialog\Dlg\define.hpp"
+#include "dialog\Dlg\ac_info.hpp"
+#include "dialog\Dlg\Settings.hpp"
+#include "pxs_satcom\init_interference.hpp"
+
+// Needed for Mando Missile ArmA
+#include "mando_missiles\mando_missile.h"
+// End of Needed for Mando Missile ArmA
+
+class RscTitles
+{
+
+	titles[]={"infomessage"};
+
+	class warcontextlabel
+	{
+		idd=-1;
+		movingEnable=0;
+		duration=10;
+		name="warcontextlabel";
+		sizeEx = 256;
+	
+		controls[]={"Picture"};
+	
+		class Picture : RscPicture
+		{
+			x=0.27; y=0.4; w=0.5; h=0.07;
+			text="sound\warcontext.paa";
+			sizeEx = 256;
+		};
+	};
+
+	class infomessage
+		{
+		idd = 10100;
+		movingEnable=0;
+		duration= 8;  
+		fadein=0;    
+		name="infomessage";
+		controlsBackground[] = {"wctext"};
+		controls[]={"wcslider", "wctime"};
+		onLoad = "uiNamespace setVariable ['wcdisplay', _this select 0];";
+		onunLoad = "uiNamespace setVariable ['wcdisplay', objnull];";    
+
+			class wctext: RscText
+			{
+				idc = 10101;
+				type = CT_STATIC;
+				x = WCTEXTX;
+				y = WCTEXTY;
+				w = WCTEXTWIDTH;
+				h = 0.15;
+				style = ST_MULTI;
+				font = FontM; 
+				sizeEx = 0.03; 
+				lineSpacing = 0.7;
+				colortext[] = {0,0,0,0.7};
+				colorBackground[] = { 0.3, 0.3, 0.3, 0.3 };
+			};
+
+			class wcslider : RscXSliderH 
+			{
+				idc = 10102;
+				x = WCSLIDERX;
+				y = WCSLIDERY;
+				w = WCSLIDERWIDTH;
+				color[] = {0,1,0,1}; 
+				coloractive[] = { 0, 0, 0, 1};
+			};
+
+			class wctime: RscText
+			{
+				idc = 10103;
+				x = WCTIMEX;
+				y = WCTIMEY;
+				w = WCTIMEWIDTH;
+				h = 0.10;
+				font = FontM;
+				sizeEx = 0.03;			
+			};
+
+	};
+// Needed for Mando Missile ArmA
+#include "mando_missiles\mando_missiletitles.h"
+// Needed for R3F log & arty
+#include "R3F_ARTY_AND_LOG\desc_rsct_include.h"	
+};
+
+
+class CfgSounds
+{
+ sounds[] = {};   
+  class intro
+  {
+   name = "intro";
+   sound[] = {"\sound\intro.ogg", 0.6, 1};
+   titles[] = {};
+  };
+  class mission
+  {
+   name = "mission";
+   sound[] = {"\sound\mission.ogg", 0.9, 1};
+   titles[] = {};
+  };
+  class paper
+  {
+   name = "paper";
+   sound[] = {"\sound\paper.ogg", 1, 1};
+   titles[] = {};
+  };
+  class imam
+  {
+   name = "imam";
+   sound[] = {"\sound\imam.ogg", 0.7, 1};
+   titles[] = {};
+  };
+  class bamboo
+  {
+   name = "bamboo";
+   sound[] = {"\sound\bamboo.ogg", 1, 1};
+   titles[] = {};
+  };
+  class clairon
+  {
+   name = "clairon";
+   sound[] = {"\sound\clairon.ogg", 1, 1};
+   titles[] = {};
+  };
+// Needed for Mando Missile ArmA
+#include "mando_missiles\mando_sounds.h"
+// End of Needed for Mando Missile ArmA
+};
+
+class Params
+{ 
+	class LEVEL
+	{
+		title = "LEVEL";
+		values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+		texts[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"};
+		default = 1;
+	};
+
+	class AIRFORCE
+	{
+		title = "AIRFORCE OPPOSITION";
+		values[] = {0, 1, 2, 3, 4, 5, 6};
+		texts[] = {"None", "Easy - Mi17, Mi24", "Normal - Mi17, Mi24, Ka52", "Hard - 2xMi17, Ka52, Mi24, Su34", "Hardcore - 3xMi17, 2xKa52, 2xMi24, Su34, Su39", "Hardcore - 4xMi17, 2xMi24, 4xSu34, 2xSu39", "Hardcore - 4xMi17, 8xSu34, 4xSu39"};
+		default = 0;
+	};
+
+	class ILLIMITEDENEMYAIR
+	{
+		title = "ILLIMITED ENEMY AIR";
+		values[] = {0, 1};
+		texts[] = {"No", "Yes"};
+		default = 0;
+	};
+
+	class FASTTIME
+	{
+		title = "FAST TIME";
+		values[] = {0, 1};
+		texts[] = {"No", "Yes"};
+		default = 1;
+	};
+
+	class WITHGRASS
+	{
+		title = "WITH GRASS";
+		values[] = {0, 1};
+		texts[] = {"No", "Yes"};
+		default = 0;
+	};
+};
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+private ["_text","_text2","_text3"]
+
+#CYCLE
+_text = format ["LAT %1", PXS_LAT]
+_text2 = format ["LON %1", PXS_LON]
+_text3 = format ["ZOM %1", (round (100*(PXS_SATELLITE_APR)))/100]
+
+ctrlSetText [1002, _text]
+ctrlSetText [1003, _text2]
+ctrlSetText [1004, _text3]
+~0.1
+goto "CYCLE"
+
+exit

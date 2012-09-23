@@ -1,0 +1,16 @@
+private []
+
+? PXS_APERTURE > 40 : exit
+? PXS_APERTURE < 0.1 : goto "LOW"
+
+#NORMAL
+PXS_APERTURE = PXS_APERTURE + 0.01
+setaperture PXS_APERTURE
+goto "KONEC"
+
+#LOW
+PXS_APERTURE = PXS_APERTURE + 0.005
+setaperture PXS_APERTURE
+
+#KONEC
+exit
